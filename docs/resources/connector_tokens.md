@@ -3,12 +3,12 @@
 page_title: "twingate_connector_tokens Resource - terraform-provider-twingate"
 subcategory: ""
 description: |-
-  Generate access and refresh tokens for the connector
+  This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
 ---
 
 # twingate_connector_tokens (Resource)
 
-Generate access and refresh tokens for the connector
+This resource type will generate tokens for a Connector, which are needed to successfully provision one on your network. The Connector itself has its own resource type and must be created before you can provision tokens.
 
 ## Example Usage
 
@@ -46,11 +46,11 @@ resource "twingate_connector_tokens" "tokens" {
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **keepers** (Map of String) Arbitrary map of values that, when changed, will trigger recreation of resource.
+- **keepers** (Map of String) Arbitrary map of values that, when changed, will trigger recreation of resource. Use this to automatically rotate Connector tokens on a schedule.
 
 ### Read-Only
 
-- **access_token** (String, Sensitive) The Access token of the parent Connector
+- **access_token** (String, Sensitive) The Access Token of the parent Connector
 - **refresh_token** (String, Sensitive) The Refresh Token of the parent Connector
 
 

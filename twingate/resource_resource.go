@@ -17,7 +17,7 @@ func resourceResource() *schema.Resource { //nolint:funlen
 				Type:         schema.TypeString,
 				Required:     true,
 				ValidateFunc: validation.StringInSlice([]string{"RESTRICTED", "ALLOW_ALL"}, false),
-				Description:  "Whether to allow all ports or restrict protocol access within certain port ranges",
+				Description:  "Whether to allow all ports or restrict protocol access within certain port ranges: Can be `RESTRICTED` (only listed ports are allowed) or `ALLOW_ALL`",
 			},
 			"ports": {
 				Type:     schema.TypeList,
@@ -31,7 +31,7 @@ func resourceResource() *schema.Resource { //nolint:funlen
 	}
 
 	return &schema.Resource{
-		Description: "Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).",
+		Description:   "Resources in Twingate represent servers on the private network that clients can connect to. Resources can be defined by IP, CIDR range, FQDN, or DNS zone. For more information, see the Twingate [documentation](https://docs.twingate.com/docs/resources-and-access-nodes).",
 		CreateContext: resourceResourceCreate,
 		UpdateContext: resourceResourceUpdate,
 		ReadContext:   resourceResourceRead,
